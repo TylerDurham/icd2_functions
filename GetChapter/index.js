@@ -5,7 +5,7 @@ var config = require('../lib/config.js');
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
-    var code = (req.query.code || (req.body && req.body.code));
+    var code = (req.query.c || (req.body && req.body.c));
 
     if (code) {
         var Connection = require('tedious').Connection;
