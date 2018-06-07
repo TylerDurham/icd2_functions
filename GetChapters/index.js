@@ -1,16 +1,12 @@
 var Request = require('tedious').Request;
 var TYPES = require('tedious').TYPES;
+var config = require('../lib/config.js');
 
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
     var Connection = require('tedious').Connection;
-    var config = {
-        userName: 'Greg',
-        password: 'DemaPs1242!1@',
-        server: 'qualitywritebacks.database.windows.net',
-        options: { encrypt:true, database: 'QualityWritebacks' }
-    }
+    
 
     var connection = new Connection(config);
     connection.on('connect', (err) => {
@@ -34,7 +30,7 @@ module.exports = function (context, req) {
 function GetChapters(connection, callback) {
     var data = { chapters: [] };
 
-    var request = new Request('SELECT Code, Chapter from ICD10Chapters', (err) => {
+    var request = new Request('EXEC [dbo].[GET_CHAPTERS]', (err) => {
         if(err) {
             context.log(err);
             return callback(err);
