@@ -15,4 +15,6 @@ npm install -g azure-functions-core-tools
 
 ### GetChapters
 
-### SearchChapters"# icd2_functions" 
+### SearchChapters"
+
+### SearchCodes
