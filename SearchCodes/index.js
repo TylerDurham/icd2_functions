@@ -12,7 +12,7 @@ module.exports = function (context, req) {
         
         context.log(`[[ input keywords: ${keywords}`);
         var query = parseKeywords(keywords);
-        context.log(`[[ parsed query ${query}`);
+        context.log(`[[ parsed query: ${query}`);
 
         var connection = new Connection(config);
         connection.on('connect', (err) => {
